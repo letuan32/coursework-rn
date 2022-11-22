@@ -14,7 +14,7 @@ const DetailsTrip = ({ navigation, route }) => {
   const [risk, setRisk] = useState(trip.isRequireRiskAssessment);
   const [description, setDescription] = useState(trip.description);
   const [error, setError] = useState(null);
-  const [isEnableEdit, setIsEnableEdit] = useState(false);
+  const [isEnableEdit, setIsEnableEdit] = useState(true);
   const db = useDbContext();
 
   const handleOnEnableSwitchChange = () =>

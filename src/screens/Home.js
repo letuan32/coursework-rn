@@ -22,7 +22,8 @@ const Home = ({ navigation }) => {
             />
             <Button
               color="red"
-              onPress={() => handleDeleteAll()}
+              onPress={() =>
+                 handleDeleteAll()}
               title="Remove ALl"
             />
           </View>
@@ -32,8 +33,35 @@ const Home = ({ navigation }) => {
   );
 
   const handleDeleteAll = () => {
-            deleteAll(db);
-            setTrips([]);
+
+    Alert.alert(
+      "Delete all trips",
+      "Are you sure to delete all trips?",
+      [
+        {
+          text: "Cancel",
+          onPress: () => Alert.alert("Cancel Pressed"),
+          style: "cancel",
+        },
+        {
+          text: "Delete all",
+          onPress: () => {
+            deleteAll(db)
+          setTrips([]);
+          },
+          style: "cancel",
+        },
+      ],
+      {
+        cancelable: true,
+        onDismiss: () => 
+        {
+        }
+          
+      }
+    );
+           
+            
   };
 
   const handleOnItemPress = (trip) => {
